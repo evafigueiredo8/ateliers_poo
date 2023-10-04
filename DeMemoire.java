@@ -2,20 +2,19 @@ import java.util.*;
 
 public class DeMemoire extends De{
     private static Random r = new Random();
-    static int nbLancer;
-    int nbAleatoire;
+    int ancienLance;
 
     public int lancer(){
+        int nvLance;
         do {
-            nbAleatoire = r.nextInt(nbFaces) + 1;
-        } while (nbAleatoire == nbLancer);
-        nbLancer = nbAleatoire;
-        return nbLancer;
+            nvLance = super.lancer();
+        } while (nvLance == ancienLance);
+        ancienLance = nvLance;
+        return ancienLance;
     }
 
     public String toString(){
-        int lancer = lancer();
-        return nom + ", " + nbFaces + ", " + nbDe + ", " + lancer;
+        return nom + ", " + nbFaces + ", " + nbDe + ", " + lancer();
     }
 
 }

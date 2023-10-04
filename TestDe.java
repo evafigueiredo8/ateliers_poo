@@ -6,5 +6,6 @@ public class TestDe{
         System.out.println(d1);
         System.out.println(d2);
         System.out.println(d3);
+        System.out.println(d3);
     }
 }
