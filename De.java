@@ -5,7 +5,7 @@ public class De{
     int nbFaces;
     private static Random r = new Random();
     static int nbDe;
-    static int meilleurLancer;
+    int meilleurLancer;
 
     public De(String nom, int nbFaces){
         if((nbFaces<120) && (nbFaces>3)){
@@ -14,6 +14,7 @@ public class De{
             nbDe+=1;
         } else{
             System.err.println(nbFaces);
+            this.nbFaces = 6;
         }
     }
 
@@ -26,17 +27,18 @@ public class De{
     public De(int nbFaces){
         if((nbFaces<120) && (nbFaces>3)){
             this.nbFaces = nbFaces;
-            this.nom = "De" + nbDe;
             nbDe+=1;
+            this.nom = "De" + nbDe;
         } else{
             System.err.println(nbFaces);
+            this.nbFaces = 6;
         }
     }
 
     public De(){
+        nbDe+=1;
         this.nom = "De" + nbDe;
         this.nbFaces = 6;
-        nbDe+=1;
     }
 
     public void getNbFaces(){
@@ -48,6 +50,7 @@ public class De{
             this.nbFaces = nbFaces;
         } else{
             System.err.println(nbFaces);
+            this.nbFaces = 6;
         }
     }
 
@@ -72,8 +75,17 @@ public class De{
             if (lancer>meilleurLancer){
                 meilleurLancer = lancer;
             }
+            i+=1;
         }
         return meilleurLancer;
     }
 
-}
+    public String toString(){
+        int meilleurLancer = nvlancer(5);
+        return nom + ", " + nbFaces + ", " + nbDe + ", " + meilleurLancer;
+    }
+
+    /*public boolean equals(){
+        }*/
+
+} 
